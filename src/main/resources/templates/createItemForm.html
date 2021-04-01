@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="author" content="Mohamed Boutaleb">
+    <meta name="description" content="A static form to create items">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Create a new item</title>
+</head>
+<header>
+</header>
+<nav>
+    <p class="logo">ITEMs Logo</p>
+    <ul class="h-list">
+        <li>
+            <a th:href="@{/}" class="nav-option">
+                Home</a>
+        </li>
+        <li>
+            <a th:href="@{/item/new}" class="nav-option, curr-option">
+                Create new item</a>
+        </li>
+    </ul>
+</nav>
+<body>
+<main id="main-create-item">
+
+    <form  class="create-item-form" action="#" th:object="${item}" th:action="${editMode} ? @{'/item/'+${item.id}+'/edit'} : @{/item/new}"
+          th:method="${editMode} ? 'put' : 'post' ">
+        <h1 th:if="${editMode}">Edit Item</h1> <h1 th:if="${not editMode}">Create a new item</h1> <br><br>
+        <input type="text" th:field="*{title}" placeholder="Title" required><br>
+        <select name="author" th:field="*{author.username}" required>
+            <option value="" selected="selected">--Choose an author--</option>
+            <option th:each="t: ${authors}" th:value="${t.username}"
+                    th:text="${t.username}"></option>
+        </select><br>
+        <select name="category" th:field="*{category}" required>
+            <option value="" selected="selected">--Choose an item category--</option>
+            <option th:each="t: ${T(ch.supsi.webapp.web.model.ItemCategory).values()}" th:value="${t}"
+                    th:text="${t.category}"></option>
+        </select><br>
+        <select th:field="*{type}" required>
+            <option value="" selected="selected">--Choose a type--</option>
+            <option th:each="t: ${T(ch.supsi.webapp.web.model.ItemType).values()}" th:value="${t}"
+                    th:text="${t.type}"></option>
+        </select><br>
+        <textarea th:field="*{date}" hidden></textarea><br>
+        <textarea th:field="*{description}" placeholder="Description" required></textarea><br>
+        <input type="submit" class="button" value="Submit"/>
+    </form>
+
+</main>
+<footer>
+    Copyleft CC-by 2020 Mohamed Boutaleb
+</footer>
+</body>
+</html>

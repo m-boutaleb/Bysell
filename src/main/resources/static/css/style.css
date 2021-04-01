@@ -1,0 +1,201 @@
+@import "config.css";
+
+/***************************** NAVIGATION *****************************/
+nav {
+    padding: 5px;
+    display: flex;
+    background-color: white;
+    align-items: center;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.nav-option {
+    text-decoration: none;
+    color: grey;
+    padding: 5px;
+    font-size: min(3vw, 15px);
+}
+
+.curr-option{
+    color: var(--theme);
+    font-weight: bold;
+    font-size: min(3vw, 15px);
+}
+
+.logo {
+    padding: 20px;
+    font-size: min(3vw, 25px);
+    font-weight: bold;
+    color: #838383;
+}
+
+
+
+.nav-option:hover {
+    background-color: white;
+    color: var(--theme);
+    font-weight: bold;
+}
+
+.h-list li {
+    display: inline;
+    padding-right: 10px;
+}
+
+
+/***************************** BODY *****************************/
+body{
+    min-height:100%;
+    position:relative;
+    padding-bottom: 4.5rem;
+}
+
+
+/***************************** MAIN-HOME *****************************/
+.index-img{
+    max-width: 60%;
+    height: auto;
+}
+.intro{
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-around;
+}
+.intro > h1{
+    text-wrap: normal;
+    font-size: 7vw;
+}
+#main-index{
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.items-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.items-container:hover{
+    cursor: pointer;
+}
+.item-container:active{
+    border: 2px solid black;
+    background-color: #e5e5e5;
+}
+.item-container{
+    margin:3px;
+    border: 1px solid #d7d7d7;
+    border-radius: 20px;
+    padding: min(.7rem, 30vw);
+}
+.item-info{
+    display:flex;
+    padding: min(3px, 1rem);
+}
+.item-info img{
+    width: min(30vw, 150px);
+    height:auto;
+    padding-right: min(10px, 1.0vw);
+}
+.item-title{
+    padding-left: 10px;
+    font-size: min(17px, 2rem);
+}
+.item-spec{
+    word-wrap: break-word;
+    font-size: min(15px, 4vw);
+    align-items: flex-start;
+    color: #4f4f4f;
+}
+
+
+/***************************** MAIN-CREATE-ITEM *****************************/
+label{
+    color: #4f4f4f;
+}
+#main-create-item{
+    display:flex;
+    justify-content: space-around;
+    margin: 15px;
+}
+.create-item-form{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 40%;
+    height: 80%;
+    background-color: white;
+    padding:min(5vw, 50px) min(3vw, 40px);
+    border: 1px solid #d7d7d7;
+    border-radius: 12px;
+}
+@media screen and (max-width: 600px){
+    .create-item-form{
+        width: 90%;
+    }
+}
+.create-item-form input{
+    height: min(40px, 6vh);
+    border: 1px solid #d7d7d7;
+    border-radius: 5px;
+}
+.create-item-form h1{
+    font-size: min(30px, 5vw);
+}
+.create-item-form p{
+    color: grey;
+}
+.create-item-form input:focus{
+    border: 2px solid var(--theme);
+}
+.create-item-form select, textarea{
+    height: 40px;
+    border: 1px solid #d7d7d7;
+    border-radius: 5px;
+}
+.create-item-form select:focus, textarea:focus{
+    border: 2px solid var(--theme);
+}
+.button{
+    background-color: var(--theme);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+a.button{
+    padding: 10px;
+    width: 100%;
+    margin: 5px;
+    text-align: center;
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.button.delete{
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+
+
+/***************************** FOOTER *****************************/
+footer {
+    position: absolute;
+    left: 0 ; right: 0; bottom: 0;
+    height: 4.5rem; /* Footer height */
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: var(--grey);
+    padding: 20px;
+    font-size: max(10px, .8rem);
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="author" content="Mohamed Boutaleb">
+    <meta name="description" content="A static home page items">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Items Application</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<header>
+</header>
+<nav>
+    <p class="logo">ITEMs Logo</p>
+    <ul class="h-list">
+        <li>
+            <a th:href="@{/}" class="nav-option, curr-option">
+                Home</a>
+        </li>
+        <li>
+            <a th:href="@{/item/new}" class="nav-option">
+                Create new item</a>
+        </li>
+    </ul>
+</nav>
+<body>
+
+<section class="intro">
+    <h1>
+        Buy and sell your items
+    </h1>
+    <img class="index-img" th:src="@{img/index-img.jpg}" alt="e"/>
+</section>
+
+<main id="main-index">
+    <div class="items-container" th:each="item : ${items}">
+        <a class="item-container" th:href="@{'/item/'+${item.id}}">
+            <h2 class="item-title" th:text="${item.title}">
+                First Item title
+            </h2>
+            <div class="item-info">
+                <img th:src="@{/img/toys.jpg}"/>
+                <div class="item-spec">
+                    <p class="item-desc" th:text="${item.description}">Description: put here the description</p>
+                    <p class="item-date" th:text="${item.date}">Date: put here the date</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <aside id="sidebar">Sidebar</aside>
+</main>
+
+<footer>
+    Copyleft CC-by 2020 Mohamed Boutaleb
+</footer>
+</body>
+</html>

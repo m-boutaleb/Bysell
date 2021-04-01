@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="author" content="Mohamed Boutaleb">
+    <meta name="description" content="A static page to visualize an item">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Items details</title>
+</head>
+<header>
+</header>
+<nav>
+    <p class="logo">ITEMs Logo</p>
+    <ul class="h-list">
+        <li>
+            <a th:href="@{/}" class="nav-option">
+                Home</a>
+        </li>
+        <li>
+            <a th:href="@{/item/new}" class="nav-option">
+                Create new item</a>
+        </li>
+    </ul>
+</nav>
+<main id="main-create-item">
+    <form class="create-item-form" th:object="${item}">
+        <h1>Item details</h1><br><br>
+        <label>Title:</label>
+        <input type="text" th:field="*{title}" placeholder="No Title" readonly><br>
+        <label>Author:</label>
+        <input type="text" th:value="*{author?.username}" placeholder="No Author" readonly><br>
+        <label>Date:</label>
+        <input type="text" th:value="${{item.date}}" placeholder="No Date" readonly><br>
+        <label>Category:</label>
+        <input type="text" th:value="*{category?.category}" placeholder="No Category" readonly><br>
+        <label>Type:</label>
+        <input type="text" th:value="*{type?.type}" placeholder="No Type" readonly><br>
+        <label>Description:</label>
+        <textarea th:field="*{description}" placeholder="No Description" readonly></textarea><br>
+        <div class="buttons"><a class="button" th:href="@{'/item/'+${item.id}+'/edit'}">Edit</a>
+            <a class="button delete" th:href="@{'/item/'+${item.id}+'/delete'}">Delete</a></div>
+
+    </form>
+</main>
+<footer>
+    Copyleft CC-by 2020 Mohamed Boutaleb
+</footer>
+</html>

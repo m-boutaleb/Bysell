@@ -1,0 +1,180 @@
+openapi: 3.0.1
+info:
+  title: API for the tutti.ch site
+  description: Simple API of Item of tutti.ch
+  contact:
+    email: mohamed.boutaleb@student.supsi.ch
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 1.0.0
+servers:
+  - url: 'https://localhost:8080/web'
+  - url: 'http://localhost:8080/web'
+tags:
+  - name: developers
+    description: Operations available to regular developers
+paths:
+  /items/all:
+    ###################### GET ALL METHOD ######################
+    get:
+      tags:
+        - developers
+      summary: get all items
+      description: |
+        Get all the available items in the site
+      operationId: allItemsInventory
+      responses:
+        '200':
+          description: Returns all the items in json array
+          content: {}
+        '400':
+          description: bad input parameter
+          content: {}
+  /items/:
+    ###################### POST METHOD ######################
+    post:
+      tags:
+        - developers
+      summary: adds an item on tutti.ch
+      description: Adds an item to the system
+      operationId: addItem
+      requestBody:
+        description: Item to add to the site
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InventoryItem'
+        required: false
+      responses:
+        '200':
+          description: Returns the item created
+          content: {}
+        '400':
+          description: 'invalid input, object invalid'
+          content: {}
+      x-codegen-request-body-name: newItemJson
+  '/items/{id}':
+    ###################### GET ID METHOD ######################
+    get:
+      tags:
+        - developers
+      summary: get a specific existing item
+      description: |
+        Get the item from the system if exists
+      operationId: getItemById
+      parameters:
+        - name: id
+          in: path
+          description: Item ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Returns the item if exists
+          content: {}
+        '404':
+          description: Item with that Id do not exists
+          content: {}
+
+    ###################### DELETE METHOD ######################
+    delete:
+      tags:
+        - developers
+      summary: deletes an item on tutti.ch
+      description: Deletes an existing item on the system
+      operationId: deleteItem
+      parameters:
+        - name : id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: item deleted
+          content: {}
+        '404':
+          description: item id not found
+          content: {}
+
+    ###################### PUT METHOD ######################
+    put:
+      tags:
+        - developers
+      summary: updates/creates an item on tutti.ch
+      description: Updates/creates an item to the system
+      operationId: updateCreateItem
+      requestBody:
+        description: Item to add to the site
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InventoryItem'
+        required: false
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: item updated
+          content: {}
+        '201':
+          description: item created
+          content: {}
+        '400':
+          description: 'invalid input, object invalid'
+          content: {}
+      x-codegen-request-body-name: id
+    patch:
+      tags:
+        - developers
+      summary: updates an item that already exists on tutti.ch
+      description: Updates a existing item to the system
+      operationId: updateItem
+      parameters:
+        - name: id
+          in: path
+          description: Item to add to the site
+          required: true
+          schema:
+            $ref: '#/components/schemas/IncompleteInventoryItem'
+      responses:
+        '400':
+          description: 'invalid input, object invalid'
+          content: {}
+        '404':
+          description: 'item id, not found'
+          content: {}
+###################### DEFINITIONS ###################### 
+components:
+  schemas:
+    IncompleteInventoryItem:
+      required:
+        - author
+      type: object
+      properties:
+        author:
+          type: string
+          example: Thomas Anderson
+    InventoryItem:
+      required:
+        - author
+        - description
+        - title
+      type: object
+      properties:
+        author:
+          type: string
+          example: Richard Gere
+        title:
+          type: string
+          example: Iphone 11 256 4 month warrancy
+        description:
+          type: string
+          example: I sell a new iphone 11 with 256 gb of ssd with warrancy
