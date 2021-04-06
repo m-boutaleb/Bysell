@@ -24,4 +24,8 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Test with Maven
-      run: mvn deploy --file pom.xml
+      run: mvn install --file pom.xml
+
+
+
+
