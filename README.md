@@ -1,4 +1,4 @@
-# Bysell  [![build status](http://isin03.dti.supsi.ch/webapp-20-21/boutaleb/pipelines)]
+# Bysell  ![build status](https://isin03.dti.supsi.ch/webapp-20-21/boutaleb/badges/master/pipeline.svg)
 Bysell is a site of buying and selling of items inspired on the site of tutti.ch
 
 # API for the tutti.ch site
