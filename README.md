@@ -1,7 +1,7 @@
 # Bysell 
 Bysell is a site of buying and selling of items inspired on the site of tutti.ch
 
-# API for the tutti.ch site
+## API for the tutti.ch site
 Simple API of Item of tutti.ch
 
 ## Version: 1.0.0
