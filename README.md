@@ -1,4 +1,4 @@
-# Bysell 
+# Bysell [![Maven Test](https://github.com/m-boutaleb/Bysell/actions/workflows/maven-test.yml/badge.svg)](https://github.com/m-boutaleb/Bysell/actions/workflows/maven-test.yml)
 Bysell is a site of buying and selling of items inspired on the site of tutti.ch
 
 ## API for the tutti.ch site
