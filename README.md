@@ -1,6 +1,6 @@
 [![Maven Test](https://github.com/m-boutaleb/Bysell/actions/workflows/maven-test.yml/badge.svg)](https://github.com/m-boutaleb/Bysell/actions/workflows/maven-test.yml) [![Maven Install](https://github.com/m-boutaleb/Bysell/actions/workflows/maven-install.yml/badge.svg)](https://github.com/m-boutaleb/Bysell/actions/workflows/maven-install.yml)
 
-# Bysell ([Site](http://isin03.dti.supsi.ch:81/boutaleb/))
+# [Bysell Site](http://isin03.dti.supsi.ch:81/boutaleb/)
 Bysell is a site of buying and selling of items inspired on the site of tutti.ch
 
 ## API for the tutti.ch site
